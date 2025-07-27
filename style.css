@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background-color: #f5f5f5;
+  color: #222;
+  line-height: 1.6;
+  padding-top: 150px; /* so content isn't hidden under navbar */
+}
+
+/* HEADER */
+
+header {
+  background-color: #111;
+  color: white;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+header h1,
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* NAVIGATION */
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.75rem 0.5rem;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #333;
+  border-radius: 5px;
+}
+
+/* DROPDOWNS */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content,
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #222;
+  padding: 0;
+  list-style: none;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  z-index: 1000;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.dropdown-content li a,
+.dropdown-menu li a {
+  color: #fff;
+  padding: 0.75em 1em;
+  display: block;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdown-content li a:hover,
+.dropdown-menu li a:hover {
+  background-color: #00bcd4;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+/* DOUBLE DROPDOWN (SUBMENUS) */
+
+.has-submenu {
+  position: relative;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #333;
+  min-width: 200px;
+  z-index: 1001;
+  list-style: none;
+}
+
+.has-submenu:hover .submenu {
+  display: block;
+}
+
+.submenu li a {
+  padding: 0.75em 1em;
+  color: #fff;
+  display: block;
+}
+
+.submenu li a:hover {
+  background-color: #00bcd4;
+}
+
+/* MAIN LAYOUT */
+
+main {
+  padding: 2em;
+  max-width: 1000px;
+  margin: auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* IMAGE STYLING */
+
+img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 1em;
+  display: block;
+}
+
+/* FOOTER */
+
+footer {
+  background-color: #121212;
+  color: #ccc;
+  padding: 1em;
+  text-align: center;
+  margin-top: 2em;
+}
+
+/* TEMPLATE 1: Standard */
+
+main h1, main h2 {
+  margin-bottom: 1em;
+}
+
+/* TEMPLATE 2: Grid Cards */
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem; /* Adds spacing between grid cards */
+    margin-top: 2rem;
+  }
+/* TEMPLATE 3: Two Column */
+
+.two-column {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.two-column > div {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* TEMPLATE 4: Timeline */
+
+.timeline {
+  border-left: 3px solid #444;
+  padding-left: 20px;
+}
+
+.timeline-event {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.timeline-event::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -12px;
+  width: 10px;
+  height: 10px;
+  background: #444;
+  border-radius: 50%;
+}
+
+/* TEMPLATE 5: Accordion (FAQ) */
+
+.accordion-item {
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.accordion-header {
+  background: #ddd;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.accordion-content {
+  padding: 10px;
+  display: none;
+}
+
+.accordion-header:hover {
+  background-color: #ccc;
+}
+
+/* RESPONSIVE NAV */
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dropdown-content,
+  .submenu {
+    position: static;
+  }
+}
